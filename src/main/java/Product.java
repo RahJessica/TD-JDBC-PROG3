@@ -13,6 +13,12 @@ public class Product {
         this.category = category;
     }
 
+    public Product(Integer id, String name, Instant creationDatetime) {
+        this.id = id;
+        this.name = name;
+        this.creationDatetime = creationDatetime;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -43,5 +49,13 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", name='" + name + '\'' +
+                ", creationDatetime=" + creationDatetime +
+                ", category=" + category + "\n";
     }
 }

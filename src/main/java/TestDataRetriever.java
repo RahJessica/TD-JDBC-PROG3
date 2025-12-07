@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestDataRetriever {
@@ -16,5 +17,14 @@ public class TestDataRetriever {
                     System.out.println(c.getName());
                 }
             }
+
+            List<Product> products = dataRetriever.getProductList(1, 10);
+            if (products.isEmpty()) {
+                System.out.println("Aucun produit trouvé");
+            } else {
+                System.out.println("Liste des produits :");
+                System.out.println(products);
+            }
+
         }
     }
