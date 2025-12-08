@@ -18,13 +18,22 @@ public class TestDataRetriever {
                 }
             }
 
-            List<Product> products = dataRetriever.getProductList(1, 10);
+            List<Product> products = dataRetriever.getProductList(1, 2 );
             if (products.isEmpty()) {
                 System.out.println("Aucun produit trouvé");
             } else {
                 System.out.println("Liste des produits :");
                 System.out.println(products);
             }
+
+            // test des filtres :
+            List<Product> allProducts = dataRetriever.getProductsByCriteria(
+                    null,
+                    null,
+                    null,
+                    null
+            );
+            allProducts.forEach(System.out::println);
 
         }
     }
