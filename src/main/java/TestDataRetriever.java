@@ -1,3 +1,4 @@
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,38 @@ public class TestDataRetriever {
                     null
             );
             allProducts.forEach(System.out::println);
+
+            List<Product> productFilter = dataRetriever.getProductsByCriteria(
+                    "pc",
+                    null,
+                    null,
+                    null
+            );
+            productFilter.forEach(System.out::println);
+
+            List<Product> categoryFilter = dataRetriever.getProductsByCriteria(
+                    null,
+                    "informatique",
+                    null,
+                    null
+            );
+            categoryFilter.forEach(System.out::println);
+
+            List<Product> dateMinFilter = dataRetriever.getProductsByCriteria(
+                    null,
+                    null,
+                    Instant.parse("2024-01-01T00:00:00Z"),
+                    null
+            );
+            dateMinFilter.forEach(System.out::println);
+
+            List<Product> combinedFilter = dataRetriever.getProductsByCriteria(
+                    "pc",
+                    "informatique",
+                    Instant.parse("2024-01-01T00:00:00Z"),
+                    Instant.now()
+            );
+            combinedFilter.forEach(System.out::println);
 
         }
     }
